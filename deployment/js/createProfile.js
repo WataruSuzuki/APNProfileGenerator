@@ -4,12 +4,12 @@ angular.module('app')
     ons.createPopover('popover.html').then(function(popover) {
 		$scope.popover = popover;
 	});
+
 	$scope.$on('$destroy',function(){
 		$scope.popover.destroy();
 	});
-    $scope.switchTrigger= function (obj) {
-        //alert(obj.IsSelected);
-    }
+
+    $scope.item_authtype = true;
 
 	$scope.downloadProfile = function() {
 		if (typeof($scope.item_apnname) != 'undefined' && $scope.item_apnname !== '') {
