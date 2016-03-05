@@ -19,7 +19,7 @@ angular.module('app')
 			} else {
                 authType = 'PAP';
 			}
-            let payloadDescription = "From APN Bookmarks webpage"
+            let payloadDescription = "From APN Profile Generator"
             let bundleID = "watarusuzuki.github.io.apn-profile"
             let UUID_forIdentifier = "f9dbd18b-90ff-58c1-8605-5abae9c50691"
             let UUID_forDescription = "4be0643f-1d98-573b-97cd-ca98a65347dd"
@@ -71,23 +71,22 @@ angular.module('app')
 
             //PayloadDescription
             profileXml += "<key>PayloadDescription</key><string>" + payloadDescription + "</string>"
-            profileXml += "<key>PayloadDisplayName</key><string>" + "APN Bookmarks webpage" + "</string>"
+            profileXml += "<key>PayloadDisplayName</key><string>" + "APN Profile Generator" + "</string>"
             profileXml += "<key>PayloadIdentifier</key><string>" + bundleID + "</string>"
             profileXml += "<key>PayloadType</key><string>com.apple.cellular</string>"
             profileXml += "<key>PayloadUUID</key><string>" + UUID_forDescription + "</string>"
             profileXml += "<key>PayloadVersion</key><real>1</real></dict></array>"
 
             //PayloadDisplayName
-            profileXml += "<key>PayloadDisplayName</key><string>" + "APN Bookmarks webpage" + "</string>"
+            profileXml += "<key>PayloadDisplayName</key><string>" + "APN Profile Generator" + "</string>"
             profileXml += "<key>PayloadIdentifier</key><string>" + bundleID + "</string>"
             profileXml += "<key>PayloadRemovalDisallowed</key><false/>"
             profileXml += "<key>PayloadType</key><string>Configuration</string>"
             profileXml += "<key>PayloadUUID</key><string>" + UUID_forIdentifier + "</string>"
             profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
 
-            if (true){//userAgent.indexOf('safari') != -1) {
-                var ref = window.open('https://ios-apnprofile-putter.herokuapp.com/?apnprofile=' + encodeURIComponent(profileXml), 'apnbookmarks.mobileconfig', 'location=yes');
-            } else {
+            var ua = navigator.userAgent.toLowerCase();
+            if (ua.indexOf('chrome') != -1 || ua.indexOf('firefox') > -1) {
                 var uri = 'data:text/xml;charset=utf-8,' + escape(profileXml);
                 var link = document.createElement("a");
                 link.href = uri;
@@ -97,6 +96,8 @@ angular.module('app')
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
+            } else {
+                var ref = window.open('https://ios-apnprofile-putter.herokuapp.com/?apnprofile=' + encodeURIComponent(profileXml), 'APNProfileGenerator.mobileconfig', 'location=yes');
             }
 
 		} else {
