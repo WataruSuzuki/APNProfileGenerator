@@ -86,8 +86,7 @@ angular.module('app')
             profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
 
             var ua = navigator.userAgent.toLowerCase();
-            if (ua.indexOf('chrome') != -1) {
-                alert('Chrome');
+            if (ua.indexOf('chrome') != -1 || ua.indexOf('firefox') > -1) {
                 var uri = 'data:text/xml;charset=utf-8,' + escape(profileXml);
                 var link = document.createElement("a");
                 link.href = uri;
