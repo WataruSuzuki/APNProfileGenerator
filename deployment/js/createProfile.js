@@ -85,7 +85,7 @@ angular.module('app')
             profileXml += "<key>PayloadUUID</key><string>" + UUID_forIdentifier + "</string>"
             profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
 
-            if (userAgent.indexOf('safari') != -1) {
+            if (navigator.userAgent.indexOf('safari') != -1) {
                 var ref = window.open('https://ios-apnprofile-putter.herokuapp.com/?apnprofile=' + encodeURIComponent(profileXml), 'apnbookmarks.mobileconfig', 'location=yes');
             } else {
                 var uri = 'data:text/xml;charset=utf-8,' + escape(profileXml);
