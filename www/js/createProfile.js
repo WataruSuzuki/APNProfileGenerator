@@ -85,8 +85,9 @@ angular.module('app')
             profileXml += "<key>PayloadUUID</key><string>" + UUID_forIdentifier + "</string>"
             profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
 
-            if (userAgent.indexOf('chrome') != -1
-            ||  userAgent.indexOf('firefox') != -1) {
+            if (userAgent.indexOf('safari') != -1) {
+                var ref = window.open('https://ios-apnprofile-putter.herokuapp.com/?apnprofile=' + encodeURIComponent(profileXml), 'apnbookmarks.mobileconfig', 'location=yes');
+            } else {
                 var uri = 'data:text/xml;charset=utf-8,' + escape(profileXml);
                 var link = document.createElement("a");
                 link.href = uri;
@@ -96,8 +97,6 @@ angular.module('app')
                 document.body.appendChild(link);
                 link.click();
                 document.body.removeChild(link);
-            } else {
-                var ref = window.open('https://ios-apnprofile-putter.herokuapp.com/?apnprofile=' + encodeURIComponent(profileXml), 'apnbookmarks.mobileconfig', 'location=yes');
             }
 
 		} else {
