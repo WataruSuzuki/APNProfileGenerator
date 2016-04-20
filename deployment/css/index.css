@@ -1,0 +1,174 @@
+.page--menu-page__background {
+    background-color: #333;
+}
+
+.page--menu-page__content {
+    color: white;
+}
+
+.menu-close,
+.menu-close > .toolbar-button {
+    color: #999;
+}
+
+.menu-list,
+.menu-item:first-child,
+.menu-item:last-child,
+.menu-item {
+    background-color: transparent;
+    background-image: none !important;
+    border-color: transparent;
+    color: #fff;
+}
+
+.menu-item {
+    padding: 0 0 0 20px;
+    line-height: 52px;
+    height: 52px;
+    text-shadow: rgba(0, 0, 0, 0.4) 0px 1px 0px;
+}
+
+    .menu-item:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+.menu-notification {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 14px;
+    height: 16px;
+    line-height: 16px;
+    min-width: 16px;
+    font-weight: 600;
+}
+
+.bottom-menu-list,
+.bottom-menu-item:first-child,
+.bottom-menu-item:last-child,
+.bottom-menu-item {
+    border-color: #393939;
+    background-color: transparent;
+    background-image: none !important;
+    color: #ccc;
+}
+
+    .bottom-menu-item:active {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ //_(_w_ )_
+
+  * {
+      -webkit-tap-highlight-color: rgba(0,0,0,0); //make transparent link selection, adjust last value opacity 0 to 1.0 //_(_w_ )_
+  }
+
+  body {
+      -webkit-touch-callout: none;                //prevent callout to copy image, etc when tap to hold //_(_w_ )_
+      -webkit-text-size-adjust: none;             //prevent webkit from resizing text to fit //_(_w_ )_
+      -webkit-user-select: none;                  //prevent copy paste, to allow, change 'none' to 'text' //_(_w_ )_
+      background-color:#E4E4E4;
+      background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+      background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+      background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
+      background-image:-webkit-gradient(
+          linear,
+          left top,
+          left bottom,
+          color-stop(0, #A7A7A7),
+          color-stop(0.51, #E4E4E4)
+      );
+      background-attachment:fixed;
+      font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+      font-size:12px;
+      height:100%;
+      margin:0px;
+      padding:0px;
+      text-transform:uppercase;
+      width:100%;
+  }
+
+  //Portrait layout (default) //_(_w_ )_
+  .app {
+      background:url(../img/logo.png) no-repeat center top; //170px x 200px //_(_w_ )_
+      position:absolute;             //position in the center of the screen //_(_w_ )_
+      left:50%;
+      top:50%;
+      height:50px;                   //text area height //_(_w_ )_
+      width:225px;                   //text area width //_(_w_ )_
+      text-align:center;
+      padding:180px 0px 0px 0px;     //image height is 200px (bottom 20px are overlapped with text) //_(_w_ )_
+      margin:-115px 0px 0px -112px;  //offset vertical: half of image height and text area height //_(_w_ )_
+                                     //offset horizontal: half of text area width //_(_w_ )_
+  }
+
+  //Landscape layout (with min-width) //_(_w_ )_
+  @media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+      .app {
+          background-position:left center;
+          padding:75px 0px 75px 170px;  //padding-top + padding-bottom + text area = image height //_(_w_ )_
+          margin:-90px 0px 0px -198px;  //offset vertical: half of image height //_(_w_ )_
+                                        //offset horizontal: half of image width and text area width //_(_w_ )_
+      }
+  }
+
+  h1 {
+      font-size:24px;
+      font-weight:normal;
+      margin:0px;
+      overflow:visible;
+      padding:0px;
+      text-align:center;
+  }
+
+  .event {
+      border-radius:4px;
+      -webkit-border-radius:4px;
+      color:#FFFFFF;
+      font-size:12px;
+      margin:0px 30px;
+      padding:2px 0px;
+  }
+
+  .event.listening {
+      background-color:#333333;
+      display:block;
+  }
+
+  .event.received {
+      background-color:#4B946A;
+      display:none;
+  }
+
+  @keyframes fade {
+      from { opacity: 1.0; }
+      50% { opacity: 0.4; }
+      to { opacity: 1.0; }
+  }
+
+  @-webkit-keyframes fade {
+      from { opacity: 1.0; }
+      50% { opacity: 0.4; }
+      to { opacity: 1.0; }
+  }
+
+  .blink {
+      animation:fade 3000ms infinite;
+      -webkit-animation:fade 3000ms infinite;
+  }
