@@ -1,0 +1,29 @@
+<ons-page modifier="menu-page">
+    <ons-toolbar modifier="transparent"></ons-toolbar>
+
+    <ons-list class="menu-list">
+      <ons-list-item class="menu-item" onclick="location.href='https://watarusuzuki.github.io/apn-profiles/app/index.html'">
+            APN Profiles<br>(APN構成プロファイル一覧)
+        </ons-list-item>
+
+        <ons-list-item class="menu-item" ng-click="menu.setMainPage('create-profile.html', {closeMenu: true})">
+            Create new APN<br>(APN構成プロファイル作成)
+        </ons-list-item>
+
+        <ons-list-item class="menu-item" onclick="location.href='https://www.unlockit.co.nz/fw/'">
+            iPhone APN Changer<br>(3rd-Party site)
+        </ons-list-item>
+
+        <ons-list-item class="menu-item" onclick="location.href='https://mobileconfig.azurewebsites.net/'">
+            iOS用APN構成プロファイルジェネレータ<br>(外部リンク)
+        </ons-list-item>
+    </ons-list>
+
+    <br>
+
+    <ons-list class="bottom-menu-list">
+        <ons-list-item class="bottom-menu-item" ng-click="menu.setMainPage('about-this.html', {closeMenu: true})">
+            About<br>(APNアシスタントとは)
+        </ons-list-item>
+    </ons-list>
+</ons-page>
