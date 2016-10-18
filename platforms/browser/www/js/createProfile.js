@@ -85,7 +85,26 @@ angular.module('app')
             profileXml += "<key>PayloadUUID</key><string>" + UUID_forIdentifier + "</string>"
             profileXml += "<key>PayloadVersion</key><integer>1</integer></dict></plist>"
 
-            var ref = window.open('data:Application/octet-stream,' + encodeURIComponent(profileXml), 'apnbookmarks.mobileconfig', 'location=yes');
+            // var ref = window.open('data:Application/octet-stream,' + encodeURIComponent(profileXml), 'apnbookmarks.mobileconfig', 'location=yes');
+            navigator.webkitTemporaryStorage.requestQuota(1024*1024*5, function(bytes) {      
+                // TEMPORARY形式を指定する
+                window.webkitRequestFileSystem(window.TEMPORARY, bytes, function(fs) {
+                    // ファイル取得
+                    fs.root.getFile('tmp.txt', {create: true}, function(fileEntry ) {
+                        fileEntry.file(
+                            function(file) {
+                                var reader = new FileReader();
+                                reader.onloadend = function(e) {
+                                    data = e.target.result;
+                                    // 読込んだ値を設定する
+                                    document.getElementById('txt').value = data;
+                                };
+                                reader.readAsText(file);
+                            });
+                        });
+                    });
+                }
+            );
 
             // var uri = 'data:text/xml;charset=utf-8,' + escape(profileXml);
             // var link = document.createElement("a");
