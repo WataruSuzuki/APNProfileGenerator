@@ -39,11 +39,12 @@ angular.module('app')
                 profileXml += "<key>Password</key><string>" + password + "</string>"
 			}
 
-            // if !rlmObject.apnProfileObj.apnsProxyServer.isEmpty
-            //     && !rlmObject.apnProfileObj.apnsProxyServerPort.isEmpty {
-            //     profileXml += "<key>ProxyPort</key><integer>" + rlmObject.apnProfileObj.apnsProxyServerPort + "</integer>"
-            //     profileXml += "<key>ProxyServer</key><string>" + rlmObject.apnProfileObj.apnsProxyServer + "</string>"
-            // }
+            if (typeof($scope.item_port) == 'undefined' || $scope.item_port === '' || typeof($scope.item_proxy) == 'undefined' || $scope.item_proxy === '') {
+                //do nothing
+            } else {
+                profileXml += "<key>ProxyPort</key><integer>" + $scope.item_port + "</integer>"
+                profileXml += "<key>ProxyServer</key><string>" + $scope.item_proxy + "</string>"
+            }
             var username = $scope.item_username;
 			if (typeof(username) == 'undefined' || username === '') {
 				//do nothing
