@@ -1,0 +1,35 @@
+<ons-page modifier="menu-page">
+    <ons-toolbar modifier="transparent">
+      <div class="center" style="color: white">Links</div>
+    </ons-toolbar>
+
+    <ons-list class="menu-list">
+      <ons-list-item class="menu-item" onclick="location.href='https://watarusuzuki.github.io/APNBookmarkPage/deployment/index.html'">
+        APN Profiles<br>(APN構成プロファイル一覧)
+      </ons-list-item>
+
+      <ons-list-item class="menu-item" ng-click="menu.setMainPage('create-profile.html', {closeMenu: true})">
+          Create new APN<br>(APN構成プロファイル作成)
+      </ons-list-item>
+
+      <ons-list-item class="menu-item" onclick="location.href='https://unlockit.co.nz/fw/'">
+          iPhone APN Changer
+      </ons-list-item>
+
+      <ons-list-item class="menu-item" onclick="location.href='https://mobileconfig.azurewebsites.net/'">
+          iOS用APN構成プロファイルジェネレータ<br>(外部リンク)
+      </ons-list-item>
+    </ons-list>
+
+    <br>
+
+    <ons-list class="bottom-menu-list">
+      <ons-list-item class="menu-item" onclick="location.href='https://watarusuzuki.github.io/APNAssistant/universallink/index.html'">
+        APN Assistant Project<br>(APNアシスタントとは)
+      </ons-list-item>
+      <ons-list-item class="menu-item" onclick="location.href='https://twitter.com/intent/tweet?text=APN%20Profile%20Generator&url=https%3A%2F%2Fwatarusuzuki.github.io%2FAPNProfileGenerator%2Fdeployment%2Findex.html'">
+        <ons-icon icon="fa-twitter"></ons-icon>
+        Twitter
+      </ons-list-item>
+    </ons-list>
+</ons-page>
